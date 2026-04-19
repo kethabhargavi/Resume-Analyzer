@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Hiring & Admin Process | Dashboard</title>
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/favicon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #6366f1;       /* indigo */
+      --primary-dark: #4f46e5;
+      --cyan: #06b6d4;
+      --dark: #0f172a;
+      --dark-800: #1e293b;
+      --light: #f8fafc;
+      --gray: #94a3b8;
+      --text: #f8fafc;
+      --bg-start: #0f172a;
+      --bg-end: #1e293b;
+      --overlay: rgba(15, 23, 42, 0.70);
+      --header-bg: rgba(15, 23, 42, 0.82);
+      --header-border: rgba(99, 102, 241, 0.18);
+      --navbar-link: var(--cyan);
+      --navbar-link-bg: rgba(6, 182, 212, 0.05);
+      --navbar-link-border: rgba(6, 182, 212, 0.12);
+      --theme-button-bg: rgba(255,255,255,0.12);
+      --theme-button-border: rgba(255,255,255,0.18);
+      --theme-button-hover: rgba(255,255,255,0.18);
+    }
+
+    .light-theme {
+      --text: #0f172a;
+      --bg-start: #eff6ff;
+      --bg-end: #dbeafe;
+      --overlay: rgba(255,255,255,0.88);
+      --header-bg: rgba(255,255,255,0.92);
+      --header-border: rgba(148,163,184,0.25);
+      --navbar-link: #0f172a;
+      --navbar-link-bg: rgba(255,255,255,0.9);
+      --navbar-link-border: rgba(148,163,184,0.25);
+      --theme-button-bg: rgba(15,23,42,0.08);
+      --theme-button-border: rgba(15,23,42,0.12);
+      --theme-button-hover: rgba(15,23,42,0.16);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+      color: var(--text);
+      min-height: 100vh;
+      background-attachment: fixed;
+      margin: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: var(--overlay);
+      z-index: -2;
+    }
+
+    /* Header */
+    #header {
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--header-border);
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s;
+    }
+
+    .logo a {
+      font-size: 1.9rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #a78bfa, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    #navbar ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    #navbar a {
+      color: var(--navbar-link);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      background: var(--navbar-link-bg);
+      border: 1px solid var(--navbar-link-border);
+    }
+
+    #navbar a:hover,
+    #navbar a.active {
+      background: linear-gradient(90deg, var(--primary), var(--cyan));
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(99,102,241,0.35);
+    }
+
+    #theme-toggle {
+      font-size: 0.95rem;
+      padding: 0.65rem 1rem;
+      border-radius: 50px;
+      background: var(--theme-button-bg);
+      border: 1px solid var(--theme-button-border);
+      color: var(--navbar-link);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #theme-toggle:hover {
+      background: var(--theme-button-hover);
+    }
+
+    .mobile-nav-toggle {
+      color: var(--cyan);
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: none;
+    }
+
+    /* Hero / Background */
+    #hero {
+      min-height: 100vh;
+      background: url("{% static 'img/admin_home_image.jpg' %}") center/cover no-repeat fixed;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.68);
+    }
+
+    @media (max-width: 991px) {
+      .mobile-nav-toggle { display: block; }
+      #navbar ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.95);
+        padding: 1.5rem;
+        border-top: 1px solid rgba(99,102,241,0.2);
+      }
+      #navbar ul.show { display: flex; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center px-4 px-lg-5">
+      <h1 class="logo"><a href="{% url 'AdminHome' %}">Hiring & Admin Process</a></h1>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="active" href="{% url 'AdminHome' %}">🏠 HOME</a></li>
+          <li><a href="{% url 'ActivaUsers' %}">👥 USER LIST</a></li>
+          <li><a href="{% url 'index' %}">🚪 LOGOUT</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <button id="theme-toggle" type="button">Light Mode</button>
+    </div>
+  </header><!-- End Header -->
+
+  <!-- Main content area starts after header -->
+  <main style="padding-top: 90px;">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- ======= Hero / Background Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <!-- Your block content will appear here -->
+  </section>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+  <!-- Mobile nav toggle -->
+  <script>
+    document.querySelector('.mobile-nav-toggle').addEventListener('click', function() {
+      document.querySelector('#navbar ul').classList.toggle('show');
+      this.classList.toggle('bi-list');
+      this.classList.toggle('bi-x');
+    });
+  </script>
+
+  <!-- AOS Initialize -->
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    const themeToggle = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('site-theme') || 'dark';
+
+    const applyTheme = (theme) => {
+      document.body.classList.toggle('light-theme', theme === 'light');
+      localStorage.setItem('site-theme', theme);
+      if (themeToggle) {
+        themeToggle.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+      }
+    };
+
+    if (themeToggle) {
+      applyTheme(storedTheme);
+      themeToggle.addEventListener('click', () => {
+        applyTheme(document.body.classList.contains('light-theme') ? 'dark' : 'light');
+      });
+    }
+  </script>
+
+</body>
+</html>
