@@ -162,7 +162,20 @@ If your backend folder structure is different, tell me—I’ll customize this e
 ## 🖼️ Demo (Optional)
 
 **Output Screenshots**
-<img src="images/Screenshot 2026-04-02 105232.png" width="450">
+
+<img src="Images/Home.png.png" width="450">
+
+---
+
+<img src="Images/Dashboard.png" width="450">
+
+---
+
+<img src="Images/offer letter.png" width="450">
+
+---
+
+<img src="Images/Result.png" width="450">
 
 ---
 
