@@ -1,47 +1,137 @@
-# Resume Analyzer
+Here’s a polished, **professional, recruiter-ready README** with better structure, clarity, and impact:
 
-A smart web-based application that analyzes resumes against job descriptions and provides match insights to help improve candidate-job alignment.
+---
 
-## 🚀 Features
+# 🧠 Resume Analyzer
 
-* Upload resume files for analysis
-* Compare resume content with job descriptions
-* Extract relevant skills and keywords
-* Calculate match score between resume and job role
-* Highlight missing skills for improvement
-* Simple and responsive user interface
+A smart, AI-powered web application that evaluates resumes against job descriptions to provide actionable insights, improve alignment, and boost hiring success.
+
+---
+
+## 🚀 Overview
+
+**Resume Analyzer** helps job seekers understand how well their resume matches a specific job role. By leveraging NLP techniques and intelligent scoring, the system highlights strengths, identifies gaps, and suggests improvements—making your application more competitive.
+
+---
+
+## ✨ Key Features
+
+* 📄 **Resume Upload & Parsing**
+  Upload resumes in supported formats and extract structured data.
+
+* 🔍 **Job Description Matching**
+  Compare resumes with job descriptions to evaluate relevance.
+
+* 🧠 **Skill & Keyword Extraction**
+  Identify important skills and keywords using NLP techniques.
+
+* 📊 **Match Score Calculation**
+  Generate a similarity score using hybrid ranking methods.
+
+* ⚠️ **Missing Skills Detection**
+  Highlight critical skills absent in the resume.
+
+* 💡 **Improvement Insights**
+  Provide suggestions to enhance resume quality.
+
+* 📱 **Responsive UI**
+  Clean and user-friendly interface for seamless interaction.
+
+---
 
 ## 🛠️ Tech Stack
 
-* Frontend: React.js / JavaScript
-* Backend: Python / Flask (or your backend stack if different)
-* Styling: CSS
-* NLP: Resume parsing and keyword extraction
+| Layer    | Technology                                                |
+| -------- | --------------------------------------------------------- |
+| Frontend | React.js, JavaScript                                      |
+| Backend  | Python, Flask                                             |
+| Styling  | CSS                                                       |
+| NLP      | Resume parsing, keyword extraction, similarity algorithms |
 
-## 📌 Project Purpose
+---
 
-This project helps job seekers understand how well their resume aligns with a specific job requirement and identify areas to improve before applying.
+## 🧩 How It Works
 
-## 📂 GitHub Repository
+The system evaluates resumes using a hybrid scoring approach:
 
-git clone https://github.com/kethabhargavi/Resume-Analyzer.git
+```
+Final Score =
+0.7 × Semantic Similarity (Sentence Transformers)
++
+0.3 × Keyword Matching (BM25)
+```
 
-## ⚙️ Installation
+* **Semantic Similarity** → Understands contextual meaning
+* **Keyword Matching** → Ensures ATS-friendly optimization
+
+---
+
+## 📌 Use Case
+
+* Students preparing for placements
+* Job seekers optimizing resumes
+* Recruiters screening candidates efficiently
+
+---
+
+## 📂 Project Setup
+
+### 🔧 Installation
 
 ```bash
+# Clone the repository
 git clone https://github.com/kethabhargavi/Resume-Analyzer.git
+
+# Navigate to project directory
 cd Resume-Analyzer
+
+# Install dependencies
 npm install
+
+# Start the application
 npm start
 ```
 
-## 📈 Future Improvements
+---
 
-* ATS score enhancement
-* Multiple resume format support
-* AI-based suggestions
-* PDF report generation
+## 📈 Future Enhancements
+
+* 🤖 AI-powered resume suggestions
+* 📑 PDF report generation
+* 📊 Advanced ATS scoring system
+* 📂 Support for multiple resume formats (DOCX, PDF, TXT)
+* 🌐 Deployment with cloud integration
+
+---
+
+## 🖼️ Demo (Optional)
+
+
+
+---
 
 ## 👩‍💻 Author
 
-Bhargavi Ketha
+**Bhargavi Ketha**
+📌 Passionate about AI, NLP, and building impactful solutions for real-world problems.
+
+---
+
+## ⭐ Contributing
+
+Contributions are welcome! Feel free to fork the repository and submit a pull request.
+
+---
+
+## 📜 License
+
+This project is open-source and available under the MIT License.
+
+---
+
+## 💡 Final Note
+
+This project is not just a tool—it’s a **career companion** that helps bridge the gap between your skills and your dream job.
+
+
+
